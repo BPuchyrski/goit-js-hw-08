@@ -15,10 +15,17 @@ form.addEventListener('input', throttle(toLocalStorage, 500));
 
 let storedOutput = JSON.parse(localStorage.getItem('feedback-form-state'));
 
-if (localStorage.getItem('feedback-form-state') === null) {
-  inputEmail.value = '';
-  inputText.value = '';
-} else {
+if (localStorage.getItem('feedback-form-state') !== null) {
   mail.value = storedOutput.email;
   textArea.value = storedOutput.message;
 }
+
+let clearLocalStorage = e => {
+  e.preventDefault();
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  mail.value = '';
+  textArea.value = '';
+  localStorage.clear();
+};
+
+form.addEventListener('submit', clearLocalStorage);
