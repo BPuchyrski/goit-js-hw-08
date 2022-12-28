@@ -15,7 +15,7 @@ iframePlayer.on(
 
 let lastTime = localStorage.getItem('videoplayer-current-time');
 
-if (localStorage.getItem('videoplayer-current-time') !== null) {
+if (lastTime !== null) {
   iframePlayer.setCurrentTime(lastTime);
 } else {
   iframePlayer.setCurrentTime(0);

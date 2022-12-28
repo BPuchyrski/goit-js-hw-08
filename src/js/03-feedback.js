@@ -25,7 +25,7 @@ let clearLocalStorage = e => {
   console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
   mail.value = '';
   textArea.value = '';
-  localStorage.clear();
+  localStorage.removeItem('feedback-form-state');
 };
 
 form.addEventListener('submit', clearLocalStorage);
